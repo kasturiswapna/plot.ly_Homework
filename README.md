@@ -1,102 +1,67 @@
 # Plot.ly Homework - Belly Button Biodiversity
 
-![Bacteria by filterforge.com](Images/bacteria_by_filterforgedotcom.jpg)
+![Bacteria by filterforge.com](Images/bacteria.jpg)
 
-In this assignment, you will build an interactive dashboard to explore the [Belly Button Biodiversity DataSet](http://robdunnlab.com/projects/belly-button-biodiversity/).
+In this assignment, you will build an interactive dashboard to explore the [Belly Button Biodiversity dataset](http://robdunnlab.com/projects/belly-button-biodiversity/), which catalogs the microbes that colonize human navels.
 
-### Before You Begin
+The dataset reveals that a small handful of microbial species (also called operational taxonomic units, or OTUs, in the study) were present in more than 70% of people, while the rest were relatively rare.
 
-1. Create a new repository for this project called `plotly-challenge`. **Do not add this homework to an existing repository**.
+## Step 1: Plotly
 
-2. Clone the new repository to your computer.
+1. Use the D3 library to read in `samples.json`.
 
-3. Inside your local git repository, create a directory for the Plotly challenge. Use the folder name to correspond to the challenge: **Belly_Button_Diversity**.
+2. Create a horizontal bar chart with a dropdown menu to display the top 10 OTUs found in that individual.
 
-4. This is a full stack app so add your html, js, css, python and sqlite files.
+* Use `sample_values` as the values for the bar chart.
 
-5. Push the above changes to GitHub or GitLab.
+* Use `otu_ids` as the labels for the bar chart.
 
-## Step 1 - Plotly.js
+* Use `otu_labels` as the hovertext for the chart.
 
-Use Plotly.js to build interactive charts for your dashboard.
+  ![bar Chart](Images/hw01.png)
 
-* Create a PIE chart that uses data from your samples route (`/samples/<sample>`) to display the top 10 samples.
+3. Create a bubble chart that displays each sample.
 
-  * Use `sample_values` as the values for the PIE chart.
+* Use `otu_ids` for the x values.
 
-  * Use `otu_ids` as the labels for the pie chart.
+* Use `sample_values` for the y values.
 
-  * Use `otu_labels` as the hovertext for the chart.
+* Use `sample_values` for the marker size.
 
-  ![PIE Chart](Images/pie_chart.png)
+* Use `otu_ids` for the marker colors.
 
-* Create a Bubble Chart that uses data from your samples route (`/samples/<sample>`) to display each sample.
+* Use `otu_labels` for the text values.
 
-  * Use `otu_ids` for the x values.
+![Bubble Chart](Images/bubble_chart.png)
 
-  * Use `sample_values` for the y values.
+4. Display the sample metadata, i.e., an individual's demographic information.
 
-  * Use `sample_values` for the marker size.
+5. Display each key-value pair from the metadata JSON object somewhere on the page.
 
-  * Use `otu_ids` for the marker colors.
+![hw](Images/hw03.png)
 
-  * Use `otu_labels` for the text values.
+6. Update all of the plots any time that a new sample is selected.
 
-  ![Bubble Chart](Images/bubble_chart.png)
+Additionally, you are welcome to create any layout that you would like for your dashboard. An example dashboard is shown below:
 
-* Display the sample metadata from the route `/metadata/<sample>`
+![hw](Images/hw02.png)
 
-  * Display each key/value pair from the metadata JSON object somewhere on the page.
+## Advanced Challenge Assignment
 
-* Update all of the plots any time that a new sample is selected.
+The following task is advanced and therefore optional.
 
-* You are welcome to create any layout that you would like for your dashboard. An example dashboard page might look something like the following.
+* Adapt the Gauge Chart from <https://plot.ly/javascript/gauge-charts/> to plot the weekly washing frequency of the individual.
 
-![Example Dashboard Page](Images/dashboard_part1.png)
-![Example Dashboard Page](Images/dashboard_part2.png)
-
-## Step 2 - Heroku
-
-Deploy your Flask app to Heroku.
-
-* You can use the provided sqlite file for the database.
-
-* Ask your Instructor and TAs for help!
-
-- - -
-
-## Advanced Challenge Assignment (Optional)
-
-The following task is completely optional and is very advanced.
-
-* Adapt the Gauge Chart from <https://plot.ly/javascript/gauge-charts/> to plot the Weekly Washing Frequency obtained from the `/metadata/<sample>`route.
-
-* You will need to modify the example gauge code to account for values ranging from 0 - 9.
+* You will need to modify the example gauge code to account for values ranging from 0 through 9.
 
 * Update the chart whenever a new sample is selected.
 
 ![Weekly Washing Frequency Gauge](Images/gauge.png)
 
-- - -
+## Deployment
 
-## Flask API
+Deploy your app to a free static page hosting service, such as GitHub Pages. Submit the links to your deployment and your GitHub repo.
 
-Use Flask API starter code to serve the data needed for your plots.
+### About the Data
 
-* Test your routes by visiting each one in the browser.
-
-- - -
-
-## Hints
-
-* Don't forget to `pip install -r requirements.txt` before you start your server.
-
-* Use `console.log` inside of your JavaScript code to see what your data looks like at each step.
-
-* Refer to the [Plotly.js Documentation](https://plot.ly/javascript/) when building the plots.
-
-- - -
-
-### Copyright
-
-Trilogy Education Services © 2019. All Rights Reserved.
+Hulcr, J. et al.(2012) _A Jungle in There: Bacteria in Belly Buttons are Highly Diverse, but Predictable_. Retrieved from: [http://robdunnlab.com/projects/belly-button-biodiversity/results-and-data/](http://robdunnlab.com/projects/belly-button-biodiversity/results-and-data/)
